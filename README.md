@@ -6,6 +6,7 @@ https://github.com/YujiSODE/txtMap
 >See LICENSE or http://opensource.org/licenses/mit-license.php
 ______
 ## 1. Synopsis
+**Output**  
 - `::txtMap::outputMap hexTxt W fileName;`  
   it outputs mapping result
 - `::txtMap::outputHexMap cMap fileName;`  
@@ -17,6 +18,14 @@ ______
 - `$cMap`: unicode character map output by `::txtMap::outputMap` or `::txtMap::hexToMap`
 - `$W`: the maximum integer length for output string
 - `$fileName`: name of output file
+
+**Hexadecimal scale**  
+- `scale ?L1 ?R1 ?L2 ?R2????;`  
+  it returns hexadecimal scale
+
+**Parameters**  
+- `$L1` and `$L2`: optional left characters
+- `$R1` and `$R2`: optional right characters
 
 **Script**  
 - `txtMap.tcl`
