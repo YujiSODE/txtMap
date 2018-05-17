@@ -20,7 +20,7 @@
 			# - $W: the maximum integer length for output string
 			# - $fileName: name of output file
 		#
-		# - ::txtMap::outputHexMap hexTxt W fileName;
+		# - ::txtMap::outputHexMap cMap fileName;
 			#it outputs mapping result in hexadecimals using unicode character map output by `::txtMap::hexToMap`
 			# - $cMap: unicode character map output by `::txtMap::hexToMap`
 			# - $fileName: name of output file
