@@ -12,8 +12,8 @@
 		# - $toChar: an array of hexadecimal elements and unicode characters
 		# - $toHex: an array of unicode character elements and hexadecimal values
 	#== Procedures ==
-		#++++++ output ++++++
 		#
+		#++++++ output ++++++
 		# - ::txtMap::outputMap hexTxt W fileName;
 			#it outputs mapping result
 			# - $hexTxt: utf-8 encoded string that is composed of hexadecimal characters (0-1 and a-f) and newline character (Unicode U+00000A)
@@ -24,8 +24,14 @@
 			#it outputs hexadecimal map converted from unicode character map
 			# - $cMap: unicode character map output by `::txtMap::outputMap` or `::txtMap::hexToMap`
 			# - $fileName: name of output file
-		#++++++++++++++++++++
 		#
+		#++++++ Hexadecimal scale ++++++  
+		# - scale ?L1 ?R1 ?L2 ?R2????;
+			#it returns hexadecimal scale
+			# - $L1 and $L2: optional left characters
+			# - $R1 and $R2: optional right characters
+		#
+		#++++++++++++++++++++
 		# - ::txtMap::to4bitHex list ?Min ?Max??;
 			#it converts nummerical list into a 4-bit hexadecimal string
 			#`to4bitHex` is modified version of `to4bit.tcl` (Yuji SODE,2018)
@@ -33,11 +39,6 @@
 			# - $Min and $Max: minimum and maximum integers
 			#   0 and 15 are default values
 			# - to4bit/to4bit.tcl (Yuji SODE,2018): the MIT License; https://gist.github.com/YujiSODE/448704a261f872865f6bfa9344aaabd9
-		#
-		# - ::txtMap::scale ?L1 ?R1 ?L2 ?R2????;
-			#it returns hexadecimal scale
-			# - $L1 and $L2: optional left characters
-			# - $R1 and $R2: optional right characters
 		#
 		# - ::txtMap::hexToMap hexTxt W;
 			#it returns unicode character map using given hexadecimal string and width
