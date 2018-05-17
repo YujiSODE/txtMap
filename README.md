@@ -1,6 +1,6 @@
 # txtMap
 Tool for hexadecimal text data mapping.  
-https://github.com/YujiSODE/txtMap
+GitHub: https://github.com/YujiSODE/txtMap
 >Copyright (c) 2017 Yuji SODE \<yuji.sode@gmail.com\>  
 >This software is released under the MIT License.  
 >See LICENSE or http://opensource.org/licenses/mit-license.php
@@ -12,7 +12,7 @@ ______
 - `::txtMap::outputHexMap cMap fileName;`  
   it outputs hexadecimal map converted from unicode character map
 
-**Parameters**  
+Parameters  
 - `$hexTxt`: utf-8 encoded string that is composed of hexadecimal characters (`0-1` and `a-f`)  
   and newline character (Unicode `U+00000A`)
 - `$cMap`: unicode character map output by `::txtMap::outputMap` or `::txtMap::hexToMap`
@@ -23,7 +23,7 @@ ______
 - `scale ?L1 ?R1 ?L2 ?R2????;`  
   it returns hexadecimal scale
 
-**Parameters**  
+Parameters  
 - `$L1` and `$L2`: optional left characters
 - `$R1` and `$R2`: optional right characters
 
