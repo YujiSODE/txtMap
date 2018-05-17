@@ -13,16 +13,19 @@
 		# - $toHex: an array of unicode character elements and hexadecimal values
 	#== Procedures ==
 		#++++++ output ++++++
+		#
 		# - ::txtMap::outputMap hexTxt W fileName;
 			#it outputs mapping result
-		#
-		# - ::txtMap::outputHexMap hexTxt W fileName;
-			#it outputs mapping result in hexadecimals
-			#--- Parameters ---
 			# - $hexTxt: utf-8 encoded string that is composed of hexadecimal characters (0-1 and a-f) and newline character (Unicode U+00000A)
 			# - $W: the maximum integer length for output string
 			# - $fileName: name of output file
+		#
+		# - ::txtMap::outputHexMap hexTxt W fileName;
+			#it outputs mapping result in hexadecimals using unicode character map output by `::txtMap::hexToMap`
+			# - $cMap: unicode character map output by `::txtMap::hexToMap`
+			# - $fileName: name of output file
 		#++++++++++++++++++++
+		#
 		# - ::txtMap::to4bitHex list ?Min ?Max??;
 			#it converts nummerical list into a 4-bit hexadecimal string
 			#`to4bitHex` is modified version of `to4bit.tcl` (Yuji SODE,2018)
@@ -169,14 +172,13 @@ namespace eval ::txtMap {
 		close $C;unset C;
 		return $fileName;
 	};
-	#it outputs mapping result in hexadecimals
-	proc outputHexMap {hexTxt W fileName} {
-		# - $hexTxt: utf-8 encoded string that is composed of hexadecimal characters (0-1 and a-f) and newline character (Unicode U+00000A)
-		# - $W: the maximum integer length for output string
+	#it outputs mapping result in hexadecimals using unicode character map output by `::txtMap::hexToMap`
+	proc outputHexMap {cMap fileName} {
+		# - $cMap: unicode character map output by `::txtMap::hexToMap`
 		# - $fileName: name of output file
 		set C [open $fileName w];
 		fconfigure $C -encoding utf-8;
-		puts -nonewline $C [::txtMap::mapToHex [::txtMap::hexToMap $hexTxt $W]];
+		puts -nonewline $C [::txtMap::mapToHex $cMap];
 		close $C;unset C;
 		return $fileName;
 	};
