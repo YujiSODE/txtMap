@@ -8,12 +8,13 @@ ______
 ## 1. Synopsis
 - `::txtMap::outputMap hexTxt W fileName;`  
   it outputs mapping result
-- `::txtMap::outputHexMap hexTxt W fileName;`  
+- `::txtMap::outputHexMap cMap fileName;`  
   it outputs mapping result in hexadecimals
 
 **Parameters**  
 - `$hexTxt`: utf-8 encoded string that is composed of hexadecimal characters (`0-1` and `a-f`)  
   and newline character (Unicode `U+00000A`)
+- `$cMap`: unicode character map output by `::txtMap::outputMap` or `::txtMap::hexToMap`
 - `$W`: the maximum integer length for output string
 - `$fileName`: name of output file
 
