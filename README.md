@@ -9,7 +9,7 @@ ______
 - `::txtMap::outputMap hexTxt W fileName;`  
   it outputs mapping result
 - `::txtMap::outputHexMap cMap fileName;`  
-  it outputs mapping result in hexadecimals
+  it outputs hexadecimal map converted from unicode character map
 
 **Parameters**  
 - `$hexTxt`: utf-8 encoded string that is composed of hexadecimal characters (`0-1` and `a-f`)  
