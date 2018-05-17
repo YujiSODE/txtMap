@@ -21,7 +21,7 @@
 			# - $fileName: name of output file
 		#
 		# - ::txtMap::outputHexMap cMap fileName;
-			#it outputs mapping result in hexadecimals using unicode character map output by `::txtMap::hexToMap`
+			#it outputs hexadecimal map converted from unicode character map
 			# - $cMap: unicode character map output by `::txtMap::outputMap` or `::txtMap::hexToMap`
 			# - $fileName: name of output file
 		#++++++++++++++++++++
@@ -172,7 +172,7 @@ namespace eval ::txtMap {
 		close $C;unset C;
 		return $fileName;
 	};
-	#it outputs mapping result in hexadecimals using unicode character map output by `::txtMap::hexToMap`
+	#it outputs hexadecimal map converted from unicode character map
 	proc outputHexMap {cMap fileName} {
 		# - $cMap: unicode character map output by `::txtMap::outputMap` or `::txtMap::hexToMap`
 		# - $fileName: name of output file
