@@ -31,7 +31,7 @@
 			# - $L1 and $L2: optional left characters
 			# - $R1 and $R2: optional right characters
 		#
-		#++++++++++++++++++++
+		#++++++ Others ++++++  
 		# - ::txtMap::to4bitHex list ?Min ?Max??;
 			#it converts nummerical list into a 4-bit hexadecimal string
 			#`to4bitHex` is modified version of `to4bit.tcl` (Yuji SODE,2018)
@@ -48,6 +48,11 @@
 		# - ::txtMap::mapToHex cMap;
 			#it returns hexadecimal map converted from unicode character map output by `::txtMap::hexToMap`
 			# - $cMap: unicode character map output by `::txtMap::hexToMap`
+		#
+		# - ::txtMap::rule ?v1 v2?;
+			#it sets a new rule and returns this new rule as a list
+			#it returns the current rules a list when arguments are not specified
+			# - $v1 and $v2: optional values
 ##===================================================================
 set auto_noexec 1;
 package require Tcl 8.6;
@@ -131,7 +136,8 @@ namespace eval ::txtMap {
 	proc scale {{L1 {}} {R1 {}} {L2 {}} {R2 {}}} {
 		# - $L1 and $L2: optional left characters
 		# - $R1 and $R2: optional right characters
-		return "${L1}0123456789abcdef${R1}\n${L2}\u2b1a\u25a1\u25eb\u25a4\u25a5\u25a6\u25a7\u25a8\u25a9\u25a3\u25a0\u25e9\u25c6\u25c7\u25c8\u25ec${R2}";
+		variable toChar;
+		return "${L1}0123456789abcdef${R1}\n${L2}$toChar(0)$toChar(1)$toChar(2)$toChar(3)$toChar(4)$toChar(5)$toChar(6)$toChar(7)$toChar(8)$toChar(9)$toChar(a)$toChar(b)$toChar(c)$toChar(d)$toChar(e)$toChar(f)${R2}";
 	};
 	#it returns unicode character map using given hexadecimal string and width
 	proc hexToMap {hexTxt W} {
@@ -182,5 +188,13 @@ namespace eval ::txtMap {
 		puts -nonewline $C [::txtMap::mapToHex $cMap];
 		close $C;unset C;
 		return $fileName;
+	};
+	#it sets a new rule and returns this new rule as a list
+	#it returns the current rules a list when arguments are not specified
+	proc rule {{v1 {}} {v2 {}}} {
+		# - $v1 and $v2: optional values
+		variable toChar;
+		variable toHex;
+		return [expr {([string length $v1]>0)&&([string length $v2]>0)?[list [set toHex($v2) $v1] [set toChar($v1) $v2]]:[array get toChar]}];
 	};
 };
