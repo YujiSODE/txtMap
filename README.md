@@ -12,7 +12,7 @@ ______
 - `::txtMap::outputHexMap cMap fileName;`  
   it outputs hexadecimal map converted from unicode character map
 
-**Parameters**  
+Parameters  
 - `$hexTxt`: utf-8 encoded string that is composed of hexadecimal characters (`0-1` and `a-f`)  
   and newline character (Unicode `U+00000A`)
 - `$cMap`: unicode character map output by `::txtMap::outputMap` or `::txtMap::hexToMap`
@@ -23,7 +23,7 @@ ______
 - `scale ?L1 ?R1 ?L2 ?R2????;`  
   it returns hexadecimal scale
 
-**Parameters**  
+Parameters  
 - `$L1` and `$L2`: optional left characters
 - `$R1` and `$R2`: optional right characters
 
@@ -33,26 +33,28 @@ ______
   it converts nummerical list into a 4-bit hexadecimal string  
   `to4bitHex` is modified version of `to4bit.tcl` (Yuji SODE,2018)
 
-**Parameters**  
+Parameters  
 - `$list`: a numerical list
 - `$Min` and `$Max`: minimum and maximum integers  
   0 and 15 are default values
+
 #### Character map and hexadecimal map
 - `::txtMap::hexToMap hexTxt W;`  
   it returns unicode character map using given hexadecimal string and width
 - `::txtMap::mapToHex cMap;`  
   it returns hexadecimal map converted from unicode character map output by `::txtMap::hexToMap`
 
-**Parameters**  
+Parameters  
 - `$hexTxt`: utf-8 encoded string that is composed of hexadecimal characters (0-1 and a-f) and newline character (Unicode U+00000A)
 - `$cMap`: unicode character map output by `::txtMap::hexToMap`
 - `$W`: the maximum integer length for output string
+
 #### Converting rule
 - `::txtMap::rule ?v1 v2?;`  
   it sets a new rule and returns this new rule as a list  
   it returns the current rules a list when arguments are not specified
 
-**Parameters**  
+Parameters  
 - `$v1` and `$v2`: optional values
 
 ## 2. Script
