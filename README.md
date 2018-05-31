@@ -8,9 +8,9 @@ ______
 ## 1. Synopsis
 ### Output
 - `::txtMap::outputMap hexTxt W fileName;`  
-  it outputs mapping result
+  it outputs mapping result.
 - `::txtMap::outputHexMap cMap fileName;`  
-  it outputs hexadecimal map converted from unicode character map
+  it outputs hexadecimal map converted from unicode character map.
 
 Parameters  
 - `$hexTxt`: utf-8 encoded string that is composed of hexadecimal characters (`0-1` and `a-f`)  
@@ -19,9 +19,19 @@ Parameters
 - `$W`: the maximum integer length for output string
 - `$fileName`: name of output file
 
+#### Output as HTML file
+- `::txtMap::outputHTML hexTxt W title ?comment?;`  
+  it outputs mapping result as HTML file using given hexadecimal string and width.
+
+Parameters  
+- `$hexTxt`: utf-8 encoded string that is composed of hexadecimal characters (0-1 and a-f) and newline character (Unicode U+00000A)
+- `$W`: the maximum integer length for output string
+- `$title`: title of output HTML file
+- `$comment`: an optional comment
+
 ### Hexadecimal scale
 - `scale ?L1 ?R1 ?L2 ?R2????;`  
-  it returns hexadecimal scale
+  it returns hexadecimal scale.
 
 Parameters  
 - `$L1` and `$L2`: optional left characters
@@ -30,8 +40,8 @@ Parameters
 ### Others
 #### Converting into 4-bit hexadecimal string
 - `::txtMap::to4bitHex list ?Min ?Max??;`  
-  it converts nummerical list into a 4-bit hexadecimal string  
-  `to4bitHex` is modified version of `to4bit.tcl` (Yuji SODE,2018)
+  it converts nummerical list into a 4-bit hexadecimal string.  
+  `to4bitHex` is modified version of `to4bit.tcl` (Yuji SODE,2018).
 
 Parameters  
 - `$list`: a numerical list
@@ -40,9 +50,9 @@ Parameters
 
 #### Character map and hexadecimal map
 - `::txtMap::hexToMap hexTxt W;`  
-  it returns unicode character map using given hexadecimal string and width
+  it returns unicode character map using given hexadecimal string and width.
 - `::txtMap::mapToHex cMap;`  
-  it returns hexadecimal map converted from unicode character map output by `::txtMap::hexToMap`
+  it returns hexadecimal map converted from unicode character map output by `::txtMap::hexToMap`.
 
 Parameters  
 - `$hexTxt`: utf-8 encoded string that is composed of hexadecimal characters (0-1 and a-f) and newline character (Unicode U+00000A)
@@ -51,13 +61,14 @@ Parameters
 
 #### Converting rule
 - `::txtMap::rule ?v1 v2?;`  
-  it sets a new rule and returns this new rule as a list  
-  it returns the current rules a list when arguments are not specified
+  it sets a new rule and returns this new rule as a list.  
+  it returns the current rules a list when arguments are not specified.
 
 Parameters  
 - `$v1` and `$v2`: optional values
 
 ## 2. Script
+It requires Tcl/Tk 8.6+.
 - `txtMap.tcl`
 
 ## 3. Library list
