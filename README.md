@@ -28,7 +28,7 @@ Parameters
 - `$R1` and `$R2`: optional right characters
 
 ### Others
-#### converting into 4-bit hexadecimal string
+#### Converting into 4-bit hexadecimal string
 - `::txtMap::to4bitHex list ?Min ?Max??;`  
   it converts nummerical list into a 4-bit hexadecimal string  
   `to4bitHex` is modified version of `to4bit.tcl` (Yuji SODE,2018)
