@@ -32,6 +32,7 @@
 			# - $R1 and $R2: optional right characters
 		#
 		#++++++ Others ++++++  
+		#--- Converting into 4-bit hexadecimal string ---
 		# - ::txtMap::to4bitHex list ?Min ?Max??;
 			#it converts nummerical list into a 4-bit hexadecimal string
 			#`to4bitHex` is modified version of `to4bit.tcl` (Yuji SODE,2018)
@@ -40,6 +41,7 @@
 			#   0 and 15 are default values
 			# - to4bit/to4bit.tcl (Yuji SODE,2018): the MIT License; https://gist.github.com/YujiSODE/448704a261f872865f6bfa9344aaabd9
 		#
+		#--- Character map and hexadecimal map ---
 		# - ::txtMap::hexToMap hexTxt W;
 			#it returns unicode character map using given hexadecimal string and width
 			# - $hexTxt: utf-8 encoded string that is composed of hexadecimal characters (0-1 and a-f) and newline character (Unicode U+00000A)
@@ -49,6 +51,7 @@
 			#it returns hexadecimal map converted from unicode character map output by `::txtMap::hexToMap`
 			# - $cMap: unicode character map output by `::txtMap::hexToMap`
 		#
+		#--- Converting rule ---
 		# - ::txtMap::rule ?v1 v2?;
 			#it sets a new rule and returns this new rule as a list
 			#it returns the current rules a list when arguments are not specified
