@@ -12,7 +12,6 @@
 		# - $toChar: an array of hexadecimal elements and unicode characters
 		# - $toHex: an array of unicode character elements and hexadecimal values
 	#== Procedures ==
-		#
 		#++++++ output ++++++
 		# - ::txtMap::outputMap hexTxt W fileName;
 			#it outputs mapping result
@@ -24,6 +23,14 @@
 			#it outputs hexadecimal map converted from unicode character map
 			# - $cMap: unicode character map output by `::txtMap::outputMap` or `::txtMap::hexToMap`
 			# - $fileName: name of output file
+		#
+		#--- output as HTML file ---
+		#- ::txtMap::outputHTML hexTxt W title ?comment?;
+			#it outputs mapping result as HTML file using given hexadecimal string and width
+			# - $hexTxt: utf-8 encoded string that is composed of hexadecimal characters (0-1 and a-f) and newline character (Unicode U+00000A)
+			# - $W: the maximum integer length for output string
+			# - $title: title of output HTML file
+			# - $comment: an optional comment
 		#
 		#++++++ Hexadecimal scale ++++++  
 		# - scale ?L1 ?R1 ?L2 ?R2????;
@@ -190,6 +197,49 @@ namespace eval ::txtMap {
 		fconfigure $C -encoding utf-8;
 		puts -nonewline $C [::txtMap::mapToHex $cMap];
 		close $C;unset C;
+		return $fileName;
+	};
+	#it outputs mapping result as HTML file using given hexadecimal string and width
+	proc outputHTML {hexTxt W title {comment {}}} {
+		# - $hexTxt: utf-8 encoded string that is composed of hexadecimal characters (0-1 and a-f) and newline character (Unicode U+00000A)
+		# - $W: the maximum integer length for output string
+		# - $title: title of output HTML file
+		# - $comment: an optional comment
+		set map [::txtMap::hexToMap $hexTxt $W];
+		set scale [::txtMap::scale];
+		set fileName "${title}.html";
+		#=== [HTML]: html is source text for HTML file ===
+		set html "<!DOCTYPE html><html lang='en'>";
+		append html "\n\t<head>\n\t\t<meta charset='utf-8'>\n\t\t<meta name='generator' content='txtMap.tcl'>\n\t\t<title>$title</title></head>";
+		append html "\n\t<body>\n\t\t<h1>$title</h1>";
+		#=== [HTML]: hexadecimal scale ===
+		append html "\n\t\t<p id='scale'>=== Hexadecimal scale ===";
+		foreach e [split $scale \n] {
+			append html "\n\t\t<br><code>$e</code>";
+		};
+		append html "\n\t\t<br>======</p>";
+		#=== [HTML]: character map ===
+		append html "\n\t\t<p id='characterMap'>=== Character map ===";
+		foreach e [split $map \n] {
+			append html "\n\t\t<br><code>$e</code>";
+		};
+		append html "\n\t\t<br>======</p>";
+		#=== [HTML]: hexadecimal map ===
+		append html "\n\t\t<p id='hexadecimalMap'>=== hexadecimal map ===";
+		foreach e [split [::txtMap::mapToHex $map] \n] {
+			append html "\n\t\t<br><code>$e</code>";
+		};
+		append html "\n\t\t<br>======</p>";
+		#=== [HTML]: optional comment ===
+		append html [expr {[llength $comment]>0?"\n\t\t<p id='comment'>[string map {\n <br>} $comment]</p>":{}}];
+		#=== [HTML]: footer ===
+		append html "\n\t\t<footer>[clock format [clock seconds] -gmt 1]</footer>";
+		append html "\n\t</body></html>";
+		#output of HTML file
+		set C [open $fileName w];
+		fconfigure $C -encoding utf-8;
+		puts -nonewline $C $html;
+		close $C;unset C map scale;
 		return $fileName;
 	};
 	#it sets a new rule and returns this new rule as a list
