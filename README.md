@@ -19,6 +19,16 @@ Parameters
 - `$W`: the maximum integer length for output string
 - `$fileName`: name of output file
 
+#### Output as HTML file
+- `::txtMap::outputHTML hexTxt W title ?comment?;`  
+  it outputs mapping result as HTML file using given hexadecimal string and width
+
+Parameters  
+- `$hexTxt`: utf-8 encoded string that is composed of hexadecimal characters (0-1 and a-f) and newline character (Unicode U+00000A)
+- `$W`: the maximum integer length for output string
+- `$title`: title of output HTML file
+- `$comment`: an optional comment
+
 ### Hexadecimal scale
 - `scale ?L1 ?R1 ?L2 ?R2????;`  
   it returns hexadecimal scale
