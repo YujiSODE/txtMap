@@ -1,7 +1,8 @@
 # txtMap
 Tool for hexadecimal text data mapping.  
-GitHub: https://github.com/YujiSODE/txtMap
->Copyright (c) 2017 Yuji SODE \<yuji.sode@gmail.com\>  
+GitHub: https://github.com/YujiSODE/txtMap  
+Wiki: https://github.com/YujiSODE/txtMap/wiki
+>Copyright (c) 2018 Yuji SODE \<yuji.sode@gmail.com\>  
 >This software is released under the MIT License.  
 >See LICENSE or http://opensource.org/licenses/mit-license.php
 ______
